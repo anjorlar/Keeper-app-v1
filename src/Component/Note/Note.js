@@ -1,13 +1,17 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Fab from '@material-ui/core/Fab';
 
 const Note = (props) => {
+    const handleClick = () => {
+        props.onDelete(props.id)
+    }
+
     return (
         <div className='note'>
-            <h1> Title: </h1>
-            <p> Content: </p>
-            <h1> Title: {props.topic} </h1>
-            <p> Content: {props.content} </p>
-            <p>{props.date}</p>
+            <h1> {props.title} </h1>
+            <p> {props.content} </p>
+            <Fab onClick={handleClick}> <DeleteIcon /> </Fab>
         </div>
     )
 }
